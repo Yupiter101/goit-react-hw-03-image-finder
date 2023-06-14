@@ -1,5 +1,5 @@
 import React from 'react';
-// import axios from "axios";
+import PropTypes from 'prop-types';
 import css from './ImageGallery.module.css';
 import { ImageGalleryItem } from 'components/ImageGalleryItem/ImageGalleryItem';
 import { Modal } from 'components/Modal/Modal';
@@ -15,12 +15,6 @@ export class ImageGallery extends React.Component {
     largeImage: '',
   }
 
-
-
-  // toggleModal = () => {
-  //   this.setState(prevState => ({showModal: !prevState.showModal}));
-    
-  // }
 
   openModal = (largeImage) => {
     this.setState({showModal: true, largeImage});
@@ -63,6 +57,14 @@ export class ImageGallery extends React.Component {
 }
 
 
+ImageGallery.propType = {
+  items:PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      webformatURL: PropTypes.string.isRequired,
+      largeImageURL: PropTypes.string.isRequired, 
+    }).isRequired,
+  ).isRequired,
+}
 
 
 

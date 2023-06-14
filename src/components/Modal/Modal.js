@@ -1,5 +1,6 @@
 import React from "react";
 import css from './Modal.module.css';
+import PropTypes from 'prop-types';
 import { createPortal } from "react-dom";
 
 
@@ -49,7 +50,11 @@ export class Modal extends React.Component {
       </div>, modalRoot
     )
   }
-  
+}
+
+
+Modal.propType = {
+  largeImg: PropTypes.string.isRequired,
 }
 
 
