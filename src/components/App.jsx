@@ -1,4 +1,7 @@
 import React from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+// import { toast } from 'react-toastify';
 import { SearchBar } from "./Searchbar/Searchbar";
 import { ImageGallery } from "./ImageGallery/ImageGallery";
 import { LoadButton } from "./Button/Button";
@@ -40,6 +43,7 @@ export class App extends React.Component {
     }
     else {
       console.log('То це вже ж було !!!!');
+      toast('То це вже ж було !!!!');
     }
   }
 
@@ -58,7 +62,9 @@ export class App extends React.Component {
 
         if(!images.hits.length) {
             console.log("Sorry, there are no images matching your search query. Please try again.");
+            toast('Sorry, there are no images');
             // Notify.warning('orry, there are no images matching your search query. Please try again.');
+            
             return
         }
 
@@ -93,6 +99,7 @@ export class App extends React.Component {
         <ImageGallery items={this.state.images}></ImageGallery>
         {isLoadMore && <LoadButton onLoadMore={this.handleLoadMore}></LoadButton>}
         {loading && <Loader></Loader>}
+        <ToastContainer autoClose={3000}></ToastContainer>
       </div>
     );
   }

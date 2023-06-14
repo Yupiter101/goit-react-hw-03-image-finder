@@ -1,5 +1,7 @@
 import React from 'react';
 import css from './Searchbar.module.css';
+import { toast } from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import { FaSearch } from 'react-icons/fa';
 
 
@@ -11,6 +13,7 @@ export class SearchBar extends React.Component {
     const searchName = event.currentTarget.elements.searchName.value;
     if(searchName.trim() === '') {
       console.log('Напиши що-небудь!');
+      toast('Напиши що-небудь!');
     }
     else {
       this.props.onSubmit(searchName);
